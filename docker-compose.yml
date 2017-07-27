@@ -14,3 +14,6 @@ services:
         dns:
             - 10.0.0.71
             - 10.0.0.72
+        volumes:
+            - /home/opr24/docker-storage/openldap-server/ldap:/var/lib/ldap
+            - /home/opr24/docker-storage/openldap-server/slapd.d:/etc/ldap/slapd.d
