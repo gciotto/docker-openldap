@@ -11,7 +11,7 @@ SERVICE_FILE_DEST = /etc/systemd/system
 
 .PHONY: install uninstall
 
-install: configure
+install:
 	mkdir -p ${DOCKER_FILES_DEST}
 	mkdir -p ${SERVICE_FILE_DEST}/${SERVICE_NAME}.service.d
 	cp --preserve=mode ${SRC_DOCKER_COMPOSE_FILE} ${DOCKER_FILES_DEST}
