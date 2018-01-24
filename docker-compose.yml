@@ -8,6 +8,7 @@ services:
             - LDAP_DOMAIN=lnls.br
             - LDAP_ADMIN_PASSWORD=controle
             - LDAP_TLS=false
+            - LDAP_READONLY_USER=true
         ports:
             - "389:389"
             - "636:636"
