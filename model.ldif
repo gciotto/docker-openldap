@@ -1,0 +1,17 @@
+# Add a ACL rule
+dn: olcDatabase={1}hdb,cn=config
+changetype: modify
+add: olcAccess
+olcAccess: {2}to dn.subtree="ou=alarm-beast,ou=groups,dc=lnls,dc=br"
+  by * read
+
+# Delete ACL rule
+dn: olcDatabase={1}hdb,cn=config
+changetype: modify
+delete: olcAccess
+olcAccess: {3}to dn.subtree="ou=alarm-beast,ou=groups,dc=lnls,dc=br"
+  by * read
+
+# Execute inside container
+ldapsearch  -Y EXTERNAL -H ldapi:/// -b cn=config 'olcDatabase={1}hdb'
+ldapmodify -Y EXTERNAL -H ldapi:/// -f teste.ldif
