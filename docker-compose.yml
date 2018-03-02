@@ -1,14 +1,14 @@
-version: '2'
+version: '3'
 services:
     openldap-server:
         container_name: openldap-server
+        hostname: openldap-server
         image: osixia/openldap
         environment:
             - LDAP_ORGANISATION="LNLS Controls Group"
             - LDAP_DOMAIN=lnls.br
-            - LDAP_ADMIN_PASSWORD=controle
+            - LDAP_ADMIN_PASSWORD=***admin_pass**
             - LDAP_TLS=false
-            - LDAP_READONLY_USER=true
         ports:
             - "389:389"
             - "636:636"
@@ -16,5 +16,5 @@ services:
             - 10.0.0.71
             - 10.0.0.72
         volumes:
-            - /home/opr24/docker-storage/openldap-server/ldap:/var/lib/ldap
-            - /home/opr24/docker-storage/openldap-server/slapd.d:/etc/ldap/slapd.d
+            - /storage/network-services/openldap/ldap:/var/lib/ldap
+            - /storage/network-services/openldap/slapd.d:/etc/ldap/slapd.d
